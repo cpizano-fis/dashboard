@@ -183,8 +183,8 @@ try:
     if len(sys.argv) > 1:
         empresa = sys.argv[1]
         tipo = sys.argv[2]
-        anio = sys.argv[3]
-        mes = sys.argv[4]
+        anio = int(sys.argv[3])
+        mes = int(sys.argv[4])
     else:
         dt = datetime.now()
         empresa = "ECUAINTEGRAL"
