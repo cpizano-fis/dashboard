@@ -83,7 +83,7 @@ def get_sql(tipo):
     print(get_sql_date_month_range(hoy))
     print(get_sql_date_week_range(hoy))
     sql = """SELECT i.id, i.type, i.invoice_number, c.name, i.date, t.type ptype, t.default_code, t.name pname, l.quantity, 
-        m.name uomname, l.price_unit, l.discount, up.name uname, ln.name lname, sl.name slname, i.state, l.partner_id
+        m.name uomname, l.price_unit, l.discount, up.name uname, ln.name lname, sl.name slname, i.state, l.partner_id, i.user_id
         FROM account_invoice_line l
         INNER JOIN account_invoice i ON i.id = l.invoice_id
         INNER JOIN product_product p ON p.id = l.product_id
@@ -143,6 +143,35 @@ def get_titles(tipo):
 	"SERVICIOS PRESTADOS", "CENTRO TÉCNICO", "SERVICIOS VARIOS"]
     return titles
 
+# 0: i.id
+# 1: i.type
+# 2: i.invoice_number
+# 3: c.name
+# 4: i.date
+# 5: t.type
+# 6: t.default_code
+# 7: t.name
+# 8: l.quantity
+# 9: m.name
+#10: l.price_unit
+#11: l.discount
+#12: up.name
+#13: ln.name
+#14: sl.name
+#15: i.state
+#16: l.partner_id
+#17: i.user_id
+
+# account_invoice i
+# product_product p
+# product_template t
+# res_partner c compañia
+# product_uom m
+# res_users u
+# res_partner up usuario
+# sales_fis_lineas_negocio ln
+# sales_fis_sublineas_negocio sl
+
 try:
     if len(sys.argv) > 1:
         empresa = sys.argv[1]
@@ -185,7 +214,16 @@ try:
                 # cantidad * (1 - descuento / 100) * precio_unitario
                 valor = multip * fila[8] * (1 - fila[11] / 100) * fila[10]
                 p = 1
-                ixpy = "PRODUCTO" if fila[13] is None else fila[13]
+                ixpy = None
+                # relacionada si 
+                if fila[16] in GRUPO:
+                    ixpy = "RELACIONADAS"
+                if fila[16] in SOCIOS:
+                    ixpy = "SOCIOS PRODUCTOS"
+                if ixpy is None:
+                    ixpy = "PRODUCTO" if fila[13] is None else fila[13]
+                if ixpy == "PROYECTOS" and fila[17] in SOCIOS::
+                    ixpy = "SOCIOS PROYECTOS"
                 #print("Fila " + str(n) + ": " + ixpy + " -> " + str(fila[13]))
                 ixsc = 0 if not ixpy in SUBC else SUBC[ixpy]
                 #if ixsc is None: 
