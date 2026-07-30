@@ -86,7 +86,7 @@ def get_sql_date_week_range(hoy):
 # tipo: integer indica si es Ventas, Compras etc.
 def get_sql(tipo):
     hoy = datetime.now()
-    hoy = datetime(2026, 5, 15, 16, 30, 0)
+    hoy = datetime(2026, 4, 15, 16, 30, 0)
     print(get_sql_date_month_range(hoy))
     print(get_sql_date_week_range(hoy))
     sql = """SELECT i.id, i.type, i.invoice_number, c.name, i.date, t.type ptype, t.default_code, t.name pname, l.quantity, 
