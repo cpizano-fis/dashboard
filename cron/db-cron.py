@@ -228,7 +228,8 @@ try:
                 ixsc = 0 if not ixpy in SUBC else SUBC[ixpy]
                 #if ixsc is None: 
                 #    ixsb = 0
-                sheet.write(n, 13, fila[14])
+                #sheet.write(n, 13, fila[14])
+                sheet.write(n, 13, ixpy)
                 sheet.write(n, 14 + ixsc, valor)
             else:
                 valor = fila[c + p]
