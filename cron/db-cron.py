@@ -84,11 +84,11 @@ def get_sql_date_week_range(hoy):
     return "'" + start_of_week.strftime("%Y-%m-%d") + "' AND '" + end_of_week.strftime("%Y-%m-%d") + "'"
 
 # tipo: integer indica si es Ventas, Compras etc.
-def get_sql(tipo):
-    hoy = datetime.now()
-    hoy = datetime(2026, 4, 15, 16, 30, 0)
-    print(get_sql_date_month_range(hoy))
-    print(get_sql_date_week_range(hoy))
+def get_sql(tipo, y, m):
+    #hoy = datetime.now()
+    hoy = datetime(y, m, 1, 12, 30, 0)
+    #print(get_sql_date_month_range(hoy))
+    #print(get_sql_date_week_range(hoy))
     sql = """SELECT i.id, i.type, i.invoice_number, c.name, i.date, t.type ptype, t.default_code, t.name pname, l.quantity, 
         m.name uomname, l.price_unit, l.discount, up.name uname, ln.name lname, sl.name slname, i.state, l.partner_id, i.user_id
         FROM account_invoice_line l
@@ -106,15 +106,15 @@ def get_sql(tipo):
     sql += " AND i.type IN ('out_invoice', 'out_refund') AND i.state IN ('open', 'paid') ORDER BY i.date, i.id, l.id"
     return sql
 
-def get_wb_names(tipo):
+def get_wb_names(tipo, y, m):
     locale.setlocale(locale.LC_TIME, 'es_EC.UTF-8')
-    dt = datetime.now()
-    dt = datetime(2026, 5, 15, 16, 30, 0)
+    #dt = datetime.now()
+    dt = datetime(y, m, 1, 12, 30, 0)
     sn = "VENTAS-" + dt.strftime('%Y%m-%B')
     fn = XLXS_PATH + sn + ".xlsx"
     return sn, fn
 
-def get_data(dbtype):
+def get_data(dbtype, y, m):
     # 1. Conexión a la base de datos
     #conexion = psycopg2.connect(
     #    host=DB_HOST,
@@ -133,7 +133,7 @@ def get_data(dbtype):
     # 2. Creación del cursor
     cursor = conexion.cursor()
     # 3. Ejecución de la consulta
-    sql = get_sql(dbtype)
+    sql = get_sql(dbtype, y, m)
     cursor.execute(sql)
     # 4. Obtención e impresión de resultados
     res = cursor.fetchall()
@@ -183,12 +183,17 @@ try:
     if len(sys.argv) > 1:
         empresa = sys.argv[1]
         tipo = sys.argv[2]
+        anio = sys.argv[3]
+        mes = sys.argv[4]
     else:
+		dt = datetime.now()
         empresa = "ECUAINTEGRAL"
-        tipo = 0
-    resultados = get_data(tipo)
+        tipo = 0 ' VENTAS
+        anio = dt.year
+        mes = dt.month
+    resultados = get_data(tipo, anio, mes)
     titles = get_titles(tipo)
-    s_name, f_name = get_wb_names(tipo)
+    s_name, f_name = get_wb_names(tipo, anio, mes)
     #file_data = BytesIO()
     #workbook = xlsxwriter.Workbook(file_data, {})
     workbook = xlsxwriter.Workbook(f_name)
