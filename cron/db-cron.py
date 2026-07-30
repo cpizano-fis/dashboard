@@ -188,7 +188,7 @@ try:
     else:
         dt = datetime.now()
         empresa = "ECUAINTEGRAL"
-        tipo = 0 ' VENTAS
+        tipo = 0 # VENTAS
         anio = dt.year
         mes = dt.month
     resultados = get_data(tipo, anio, mes)
