@@ -186,7 +186,7 @@ try:
         anio = sys.argv[3]
         mes = sys.argv[4]
     else:
-		dt = datetime.now()
+        dt = datetime.now()
         empresa = "ECUAINTEGRAL"
         tipo = 0 ' VENTAS
         anio = dt.year
