@@ -66,7 +66,7 @@ SOCIO = {
     48920: "LOAIZA CUARTAS JUAN FELIPE"
 }
 
-def to_datetime(self, date):
+def to_datetime(date):
 	try:
 		d = datetime.strptime(date, '%Y-%m-%d')
 	except Exception as e:
