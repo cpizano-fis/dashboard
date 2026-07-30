@@ -66,6 +66,13 @@ SOCIO = {
     48920: "LOAIZA CUARTAS JUAN FELIPE"
 }
 
+def to_datetime(self, date):
+	try:
+		d = datetime.strptime(date, '%Y-%m-%d')
+	except Exception as e:
+		d = datetime.strptime(date.split(' ')[0], '%Y-%m-%d')
+	return d
+
 # agregar diferenciador de tipo de consulta
 def get_sql_date_month_range(hoy):
     _, lday = calendar.monthrange(hoy.year, hoy.month)
@@ -186,7 +193,7 @@ try:
     #workbook = xlsxwriter.Workbook(file_data, {})
     workbook = xlsxwriter.Workbook(f_name)
     bold_format = workbook.add_format({'bold': True})
-    #    date_format = workbook.add_format({'num_format': 'yyyy-mm-dd'})
+    date_format = workbook.add_format({'num_format': 'yyyy-mm-dd'})
     #    money_format = workbook.add_format({'num_format': '$#,##0.00'})
     # Se debe implementar el borrado de archivos ?
     sheet = workbook.add_worksheet(s_name)
@@ -236,7 +243,7 @@ try:
             if c != 2:
                 sheet.write(n, c, valor)
             else: 
-                sheet.write_datetime(n, c, valor)
+                sheet.write_datetime(n, c, to_datetime(valor), date_format)
 
         n += 1
         p = 2
