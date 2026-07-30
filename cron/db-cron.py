@@ -243,7 +243,7 @@ try:
             if c != 2:
                 sheet.write(n, c, valor)
             else: 
-                sheet.write_datetime(n, c, to_datetime(valor), date_format)
+                sheet.write_datetime(n, c, valor, date_format)
 
         n += 1
         p = 2
