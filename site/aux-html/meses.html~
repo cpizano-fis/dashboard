@@ -1,0 +1,42 @@
+<table>
+	<thead>
+		<tr>
+			<th>Mes/Año</th>
+			<th>Acciones</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-agosto.xlsx'>Agosto 2026</a></td>
+			<td>Repetir</td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-julio.xlsx'>Julio 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-junio.xlsx'>Junio 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-mayo.xlsx'>Mayo 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-abril.xlsx'>Abril 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-marzo.xlsx'>Marzo 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-febrero.xlsx'>Febrero 2026</a></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-enero.xlsx'>Enero 2026</a></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
