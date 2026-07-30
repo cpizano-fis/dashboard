@@ -222,7 +222,7 @@ try:
                     ixpy = "SOCIOS PRODUCTOS"
                 if ixpy is None:
                     ixpy = "PRODUCTO" if fila[13] is None else fila[13]
-                if ixpy == "PROYECTOS" and fila[17] in SOCIOS::
+                if ixpy == "PROYECTOS" and fila[17] in SOCIOS:
                     ixpy = "SOCIOS PROYECTOS"
                 #print("Fila " + str(n) + ": " + ixpy + " -> " + str(fila[13]))
                 ixsc = 0 if not ixpy in SUBC else SUBC[ixpy]
