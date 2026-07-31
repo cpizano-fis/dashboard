@@ -1,5 +1,4 @@
 <?php
-
 $y = filter_input(INPUT_GET, "y");
 $m = filter_input(INPUT_GET, "m");
 $output = [];
@@ -16,4 +15,4 @@ if ($status_code === 0) {
     echo "<br>Command failed with code: " . $status_code;
 }
 $server_ip = trim(file_get_contents('https://checkip.amazonaws.com'));
-header("Location: http://" . $server_ip . "/");
+header("Location: http://" . $server_ip . "/dashboard/");
