@@ -5,7 +5,7 @@ $m = filter_input(INPUT_GET, "m");
 $output = [];
 $status_code = 0;
 // The array will populate with each line of output
-$command = 'python3 /home/ubuntu/dashboard/cron/db-cron.py ECUAINTEGRAL 0 ' . $y . ' ' . $m;
+$command = 'python3 /home/ubuntu/dashboard/cron/db-cron.py ECUAINTEGRAL 0 ' . $y . ' ' . $m . ' 2>&1';
 echo $command . "<br>";
 exec($command, $output, $status_code);
 $salida = print_r($output, TRUE);
