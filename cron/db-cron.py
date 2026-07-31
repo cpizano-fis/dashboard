@@ -14,8 +14,11 @@ XLXS_PATH = "/var/www/html/xlsx/"
 DB_HOST = "fis-dashboard-test.cwkvhvjuxg8i.us-east-1.rds.amazonaws.com"
 DB_DATABASE = "fis-dashboard-test"
 
-DB_HOST_FIS = "db-sifis-ec.cwkvhvjuxg8i.us-east-1.rds.amazonaws.com"
-DB_DATABASE_FIS = "fis"
+DB_HOST_FIS_EC = "db-sifis-ec.cwkvhvjuxg8i.us-east-1.rds.amazonaws.com"
+DB_DATABASE_FIS_EC = "fis"
+
+DB_HOST_FIS_CO = "172.31.44.250"
+DB_DATABASE_FIS_CO = "COLOMBIA_PRODUCCION"
 
 SUBC = {
     "PRODUCTO": 0,
@@ -123,11 +126,20 @@ def get_data(dbtype, y, m):
     #    password="F!sdbtest-2026",
     #    port="5432"
     #)
+    
     conexion = psycopg2.connect(
-        host=DB_HOST_FIS,
-        database=DB_DATABASE_FIS,
+        host=DB_HOST_FIS_EC,
+        database=DB_DATABASE_FIS_EC,
         user="odoousr",
         password="FISDBecpw",
+        port="5432"
+    )
+    
+    conexion = psycopg2.connect(
+        host=DB_HOST_FIS_CO,
+        database=DB_DATABASE_FIS_CO,
+        user="odoousr",
+        password="FISDBcopw",
         port="5432"
     )
     # 2. Creación del cursor
