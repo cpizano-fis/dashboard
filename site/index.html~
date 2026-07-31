@@ -89,9 +89,7 @@
 				<td>ECUAINTEGRAL</td>
 				<td>Febrero 2026</td>
 				<td>
-					<a href='http://52.21.129.99/xlsx/VENTAS-202602-febrero.xlsx'>
-						<img title="Descargar archivo Excel de Febrero de 2026" src="http://52.21.129.99/dashboard/img/download.png" width="24" height="24" alt="Descargar archivo febrero 2026">
-					</a>
+					<a href='http://52.21.129.99/xlsx/VENTAS-202602-febrero.xlsx'><img title="Descargar archivo Excel de Febrero de 2026" src="http://52.21.129.99/dashboard/img/download.png" width="24" height="24" alt="Descargar archivo febrero 2026"></a>
 					&nbsp;
 					<a href='http://52.21.129.99/dashboard/reload.php?y=2026&m=2'><img title="Volver a generar archivo Excel de Febrero de 2026" src="http://52.21.129.99/dashboard/img/reload.png" width="24" height="24" alt="Recargar archivo julio 2026"></a></td>
 			</tr>
