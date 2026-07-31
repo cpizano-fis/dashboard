@@ -8,11 +8,11 @@
 	<tbody>
 		<tr>
 			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-agosto.xlsx'>Agosto 2026</a></td>
-			<td>Repetir</td>
+			<td><img src="http://52.21.129.99/img/reload.png" width="24" height="24" alt="Recargar archivo agosto 2026"></td>
 		</tr>
 		<tr>
 			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-julio.xlsx'>Julio 2026</a></td>
-			<td></td>
+			<td><img src="http://52.21.129.99/img/reload.png" width="24" height="24" alt="Recargar archivo julio 2026"></td>
 		</tr>
 		<tr>
 			<td><a href='http://52.21.129.99/xlsx/VENTAS-202607-junio.xlsx'>Junio 2026</a></td>
